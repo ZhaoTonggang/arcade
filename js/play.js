@@ -466,7 +466,7 @@ const dowrom = () => {
 	const dorom = confirm('您要下载此游戏的ROM文件吗？');
 	if (dorom == true) {
 		cocoMessage.warning("即将开始下载！", 2000);
-		window.open('../roms/' + gameInfo.i + '.7z');
+		window.open("https://arcade-rom.heheda.top/" + gameInfo.i + ".zip");
 	} else {
 		cocoMessage.warning("您取消了下载！", 2000);
 	}

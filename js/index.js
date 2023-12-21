@@ -7,10 +7,8 @@ if (window.top != window) {
 } else if (window.location.href.indexOf('index') > -1) {
 	window.open('./', '_self');
 };
-// 数据容器
-let data;
-let timeout = null;
 // 取得资源
+let timeout = null;
 const search = document.getElementById('search');
 const cdtopbt = document.getElementById("cd-top");
 const title = document.title;
@@ -25,17 +23,17 @@ const intdata = () => {
 			return response.json();
 		})
 		.then(datas => {
+			// 数据容器
+			let data;
 			let item = "";
 			const app = document.getElementById('app');
 			const searchV = search.value.replace(/(^\s*)|(\s*$)/g, '');
 			if (searchV === '') {
 				data = datas;
 			} else {
-				data = datas.filter(array => array.n.match(searchV) || array.v.match(searchV) || array.c.match(
-					searchV));
+				data = datas.filter(array => array.n.match(searchV));
 				if (data.length === 0) {
-					app.classList.add('sapp');
-					app.innerHTML = '<h1>什么东东都没有，换个词试试丫！</h1>';
+					app.innerHTML = '<h1 id="apph">什么东东都没有，换个词试试丫！</h1>';
 					return;
 				};
 			};
