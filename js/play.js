@@ -11,7 +11,7 @@ const urlerr = () => {
 	alert('参数传入不合法');
 	window.location.href = "/";
 	return;
-};
+}
 // 判断数据合法性
 if (window.top != window) {
 	alert('当您看到这条提示意味着：您所访问的网站正在恶意调用本站资源，本站对偷盗资源的行为0容忍，点击确认跳转正版体验。');
@@ -28,7 +28,7 @@ if (window.top != window) {
 				urlerr();
 			}
 			gameInfo[data[0]] = data[1];
-		};
+		}
 		cocoMessage.warning("正在配置资源！", 2000);
 		const showload = document.getElementById('btn_load');
 		//展示游戏名称
@@ -65,11 +65,8 @@ if (window.top != window) {
 		// 菜单配置
 		window.defaultOptions = {
 			'shader': 'crt-easymode.glslp',
-			'fastForward': 'disabled',
-			'save-state-location': 'browser',
-			'fceumm_sndquality': 'Very High',
-			'fceumm_turbo_enable': 'Both'
-		};
+			'save-state-location': 'browser'
+		}
 		// 背景模糊
 		window.backgroundBlur = true;
 		// 背景颜色
@@ -88,8 +85,8 @@ if (window.top != window) {
 			"Restart": "重新开始",
 			"Pause": "暂停",
 			"Play": "开始",
-			"Save State": "保存状态",
-			"Load State": "加载状态",
+			"Save State": "存档",
+			"Load State": "读档",
 			"Control Settings": "控制设置",
 			"Cheats": "作弊",
 			"Cache Manager": "缓存管理器",
@@ -104,8 +101,8 @@ if (window.top != window) {
 			"Reset": "重置",
 			"Clear": "清除",
 			"Close": "关闭",
-			"QUICK SAVE STATE": "快速保存状态",
-			"QUICK LOAD STATE": "快速加载状态",
+			"QUICK SAVE STATE": "快速存档",
+			"QUICK LOAD STATE": "快速读档",
 			"CHANGE STATE SLOT": "改变状态槽",
 			"FAST FORWARD": "快进",
 			"Player": "玩家",
@@ -122,6 +119,7 @@ if (window.top != window) {
 			"Decompress Game Core": "解压游戏核心",
 			"Download Game Data": "下载游戏数据",
 			"Decompress Game Data": "解压游戏数据",
+			"Context Menu": "菜单",
 			"Shaders": "着色器",
 			"Disabled": "禁用",
 			"2xScaleHQ": "2xScaleHQ",
@@ -140,15 +138,10 @@ if (window.top != window) {
 			"Save State Location": "保存状态位置",
 			"Download": "下载",
 			"Keep in Browser": "保留在浏览器中",
-			"Auto": "自动",
-			"NTSC": "NTSC",
-			"PAL": "PAL",
-			"Dendy": "Dendy",
-			"8:7 PAR": "8:7 PAR",
-			"4:3": "4:3",
-			"Low": "低",
-			"High": "高",
-			"Very High": "极高",
+			"speed": "速度",
+			"adjust": "调整",
+			"samplerate": "采样率",
+			"input": "输入",
 			"None": "无",
 			"Player 1": "玩家1",
 			"Player 2": "玩家2",
@@ -192,6 +185,8 @@ if (window.top != window) {
 			"EmulatorJS": "EmulatorJS",
 			"Clear All": "全部清除",
 			"Take Screenshot": "截图",
+			"Start screen recording": "开始录屏",
+			"Stop screen recording": "停止录屏",
 			"Quick Save": "快速保存",
 			"Quick Load": "快速加载",
 			"REWIND": "快退",
@@ -381,7 +376,348 @@ if (window.top != window) {
 			"DPAD_DOWN": "十字键向下",
 			"DPAD_LEFT": "十字键向左",
 			"DPAD_RIGHT": "十字键向右"
-		};
+		}
+		// 按键映射
+		window.defaultControllers = {
+			0: {
+				0: {
+					'value': 'b',
+					'value2': 'BUTTON_2'
+				},
+				1: {
+					'value': 'h',
+					'value2': 'BUTTON_4'
+				},
+				2: {
+					'value': 'space',
+					'value2': 'SELECT'
+				},
+				3: {
+					'value': 'enter',
+					'value2': 'START'
+				},
+				4: {
+					'value': 'w',
+					'value2': 'DPAD_UP'
+				},
+				5: {
+					'value': 's',
+					'value2': 'DPAD_DOWN'
+				},
+				6: {
+					'value': 'a',
+					'value2': 'DPAD_LEFT'
+				},
+				7: {
+					'value': 'd',
+					'value2': 'DPAD_RIGHT'
+				},
+				8: {
+					'value': 'v',
+					'value2': 'BUTTON_1'
+				},
+				9: {
+					'value': 'g',
+					'value2': 'BUTTON_3'
+				},
+				10: {
+					'value': 'z',
+					'value2': 'LEFT_TOP_SHOULDER'
+				},
+				11: {
+					'value': 'x',
+					'value2': 'RIGHT_TOP_SHOULDER'
+				},
+				12: {
+					'value2': 'LEFT_BOTTOM_SHOULDER'
+				},
+				13: {
+					'value2': 'RIGHT_BOTTOM_SHOULDER'
+				},
+				14: {
+					'value2': 'LEFT_STICK'
+				},
+				15: {
+					'value2': 'RIGHT_STICK'
+				},
+				16: {
+					'value2': 'LEFT_STICK_X:+1'
+				},
+				17: {
+					'value2': 'LEFT_STICK_X:-1'
+				},
+				18: {
+					'value2': 'LEFT_STICK_Y:+1'
+				},
+				19: {
+					'value2': 'LEFT_STICK_Y:-1'
+				},
+				20: {
+					'value2': 'RIGHT_STICK_X:+1'
+				},
+				21: {
+					'value2': 'RIGHT_STICK_X:-1'
+				},
+				22: {
+					'value2': 'RIGHT_STICK_Y:+1'
+				},
+				23: {
+					'value2': 'RIGHT_STICK_Y:-1'
+				},
+				24: {
+					'value': '1'
+				},
+				25: {
+					'value': '2'
+				},
+				26: {
+					'value': '3'
+				}
+			},
+			1: {
+				0: {
+					'value': 'l',
+					'value2': 'BUTTON_2'
+				},
+				1: {
+					'value': 'p',
+					'value2': 'BUTTON_4'
+				},
+				2: {
+					'value': 'dash',
+					'value2': 'SELECT'
+				},
+				3: {
+					'value': 'equal sign',
+					'value2': 'START'
+				},
+				4: {
+					'value': 'up arrow',
+					'value2': 'DPAD_UP'
+				},
+				5: {
+					'value': 'down arrow',
+					'value2': 'DPAD_DOWN'
+				},
+				6: {
+					'value': 'left arrow',
+					'value2': 'DPAD_LEFT'
+				},
+				7: {
+					'value': 'right arrow',
+					'value2': 'DPAD_RIGHT'
+				},
+				8: {
+					'value': 'k',
+					'value2': 'BUTTON_1'
+				},
+				9: {
+					'value': 'o',
+					'value2': 'BUTTON_3'
+				},
+				10: {
+					'value': 'comma',
+					'value2': 'LEFT_TOP_SHOULDER'
+				},
+				11: {
+					'value': 'period',
+					'value2': 'RIGHT_TOP_SHOULDER'
+				},
+				12: {
+					'value2': 'LEFT_BOTTOM_SHOULDER'
+				},
+				13: {
+					'value2': 'RIGHT_BOTTOM_SHOULDER'
+				},
+				14: {
+					'value2': 'LEFT_STICK'
+				},
+				15: {
+					'value2': 'RIGHT_STICK'
+				},
+				16: {
+					'value2': 'LEFT_STICK_X:+1'
+				},
+				17: {
+					'value2': 'LEFT_STICK_X:-1'
+				},
+				18: {
+					'value2': 'LEFT_STICK_Y:+1'
+				},
+				19: {
+					'value2': 'LEFT_STICK_Y:-1'
+				},
+				20: {
+					'value2': 'RIGHT_STICK_X:+1'
+				},
+				21: {
+					'value2': 'RIGHT_STICK_X:-1'
+				},
+				22: {
+					'value2': 'RIGHT_STICK_Y:+1'
+				},
+				23: {
+					'value2': 'RIGHT_STICK_Y:-1'
+				},
+				24: {
+					'value': '4'
+				},
+				25: {
+					'value': '5'
+				},
+				26: {
+					'value': '6'
+				}
+			},
+			2: {
+				0: {
+					'value2': 'BUTTON_2'
+				},
+				1: {
+					'value2': 'BUTTON_4'
+				},
+				2: {
+					'value2': 'SELECT'
+				},
+				3: {
+					'value2': 'START'
+				},
+				4: {
+					'value2': 'DPAD_UP'
+				},
+				5: {
+					'value2': 'DPAD_DOWN'
+				},
+				6: {
+					'value2': 'DPAD_LEFT'
+				},
+				7: {
+					'value2': 'DPAD_RIGHT'
+				},
+				8: {
+					'value2': 'BUTTON_1'
+				},
+				9: {
+					'value2': 'BUTTON_3'
+				},
+				10: {
+					'value2': 'LEFT_TOP_SHOULDER'
+				},
+				11: {
+					'value2': 'RIGHT_TOP_SHOULDER'
+				},
+				12: {
+					'value2': 'LEFT_BOTTOM_SHOULDER'
+				},
+				13: {
+					'value2': 'RIGHT_BOTTOM_SHOULDER'
+				},
+				14: {
+					'value2': 'LEFT_STICK'
+				},
+				15: {
+					'value2': 'RIGHT_STICK'
+				},
+				16: {
+					'value2': 'LEFT_STICK_X:+1'
+				},
+				17: {
+					'value2': 'LEFT_STICK_X:-1'
+				},
+				18: {
+					'value2': 'LEFT_STICK_Y:+1'
+				},
+				19: {
+					'value2': 'LEFT_STICK_Y:-1'
+				},
+				20: {
+					'value2': 'RIGHT_STICK_X:+1'
+				},
+				21: {
+					'value2': 'RIGHT_STICK_X:-1'
+				},
+				22: {
+					'value2': 'RIGHT_STICK_Y:+1'
+				},
+				23: {
+					'value2': 'RIGHT_STICK_Y:-1'
+				}
+			},
+			3: {
+				0: {
+					'value2': 'BUTTON_2'
+				},
+				1: {
+					'value2': 'BUTTON_4'
+				},
+				2: {
+					'value2': 'SELECT'
+				},
+				3: {
+					'value2': 'START'
+				},
+				4: {
+					'value2': 'DPAD_UP'
+				},
+				5: {
+					'value2': 'DPAD_DOWN'
+				},
+				6: {
+					'value2': 'DPAD_LEFT'
+				},
+				7: {
+					'value2': 'DPAD_RIGHT'
+				},
+				8: {
+					'value2': 'BUTTON_1'
+				},
+				9: {
+					'value2': 'BUTTON_3'
+				},
+				10: {
+					'value2': 'LEFT_TOP_SHOULDER'
+				},
+				11: {
+					'value2': 'RIGHT_TOP_SHOULDER'
+				},
+				12: {
+					'value2': 'LEFT_BOTTOM_SHOULDER'
+				},
+				13: {
+					'value2': 'RIGHT_BOTTOM_SHOULDER'
+				},
+				14: {
+					'value2': 'LEFT_STICK'
+				},
+				15: {
+					'value2': 'RIGHT_STICK'
+				},
+				16: {
+					'value2': 'LEFT_STICK_X:+1'
+				},
+				17: {
+					'value2': 'LEFT_STICK_X:-1'
+				},
+				18: {
+					'value2': 'LEFT_STICK_Y:+1'
+				},
+				19: {
+					'value2': 'LEFT_STICK_Y:-1'
+				},
+				20: {
+					'value2': 'RIGHT_STICK_X:+1'
+				},
+				21: {
+					'value2': 'RIGHT_STICK_X:-1'
+				},
+				22: {
+					'value2': 'RIGHT_STICK_Y:+1'
+				},
+				23: {
+					'value2': 'RIGHT_STICK_Y:-1'
+				}
+			}
+		}
 		// 初始化模拟器
 		window.EJS_emulator = new EmulatorJS(EJS_player, window);
 		// 游戏状态
@@ -418,10 +754,10 @@ if (window.top != window) {
 						titler.style.left = "-220px";
 						titlel.style.right = "-220px";
 					}, 3000)
-				};
-			};
+				}
+			}
 			setgame = true;
-		});
+		})
 		cocoMessage.success("资源配置完成！", 2000);
 		showload.style.display = 'none';
 		// 移除遮罩
@@ -429,13 +765,13 @@ if (window.top != window) {
 	}
 } else {
 	urlerr();
-};
+}
 // 设置按钮状态
 if (navigator.share) {
 	document.getElementById("share").style.display = "inline";
 } else {
 	console.log("分享功能禁用");
-};
+}
 //获取设备类型
 let isMobile = /(iPhone|iPod|Android|ios|iOS|iPad|WebOS|Symbian|Windows Phone|Phone)/i.test(navigator.userAgent);
 //设置操作方式
@@ -470,7 +806,7 @@ const dowrom = () => {
 	} else {
 		cocoMessage.warning("您取消了下载！", 2000);
 	}
-};
+}
 // 截屏
 const screenshot = () => {
 	if (setgame) {
@@ -493,4 +829,4 @@ document.addEventListener('dblclick', (e) => {
 	e.preventDefault()
 }, {
 	passive: false
-});
+})
