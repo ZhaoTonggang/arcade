@@ -46,18 +46,17 @@ if (window.top != window) {
 			window.biosUrl = '../bios/' + gameInfo.b + '.7z';
 		}
 		// ROM
-		window.gameUrl = "https://arcade-rom.heheda.top/" + gameInfo.i + ".zip";
+		// window.gameUrl = "https://arcade-rom.heheda.top/" + gameInfo.i + ".zip";
+		window.gameUrl = "../roms/" + gameInfo.i + ".zip";
 		// 初始化
 		window.EJS_player = "#show_box";
 		window.dataPath = "https://other.heheda.top/gamelib/";
 		// 核心
 		window.system = "arcade";
-		// 线程
-		// window.threads = true;
+		// 全屏
+		window.fullscreenOnLoad = true;
 		// 广告
 		window.adUrl = "../ads/";
-		// 广告方式
-		window.adMode = 2;
 		// 广告时间
 		window.adTimer = 5000;
 		// 音量
@@ -825,8 +824,13 @@ const chongzai = () => {
 	window.location.reload();
 }
 //禁止双击缩放
-document.addEventListener('dblclick', (e) => {
+window.addEventListener('dblclick', (e) => {
 	e.preventDefault()
 }, {
 	passive: false
 })
+// 卸载提示
+window.onbeforeunload = (bfe) => {
+	bfe.preventDefault();
+	bfe.returnValue = "退出前，别忘记保存游戏进度哦！";
+}
