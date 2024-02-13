@@ -755,6 +755,11 @@ if (window.top != window) {
 				}
 			}
 			setgame = true;
+			// 卸载提示
+			window.onbeforeunload = (bfe) => {
+				bfe.preventDefault();
+				bfe.returnValue = "退出前，别忘记保存游戏进度哦！";
+			}
 		})
 		cocoMessage.success("资源配置完成！", 2000);
 		showload.style.display = 'none';
@@ -828,8 +833,3 @@ window.addEventListener('dblclick', (e) => {
 }, {
 	passive: false
 })
-// 卸载提示
-window.onbeforeunload = (bfe) => {
-	bfe.preventDefault();
-	bfe.returnValue = "退出前，别忘记保存游戏进度哦！";
-}
