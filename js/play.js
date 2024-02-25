@@ -48,6 +48,8 @@ if (window.top != window) {
 		// ROM
 		romUrl = (gameInfo.s ? "https://storage.heheda.top/arcade-rom/" : "../roms/") + gameInfo.i + ".zip";
 		window.gameUrl = romUrl;
+		// 地区
+		const dipswitch = 'fbneo-dipswitch-' + gameInfo.i + '-Region_(Fake)';
 		// 初始化
 		window.EJS_player = "#show_box";
 		window.dataPath = "https://other.heheda.top/gamelib/";
@@ -64,7 +66,8 @@ if (window.top != window) {
 		// 菜单配置
 		window.defaultOptions = {
 			'shader': 'crt-easymode.glslp',
-			'save-state-location': 'browser'
+			'save-state-location': 'browser',
+			[dipswitch]: 'China'
 		}
 		// 背景模糊
 		window.backgroundBlur = true;
