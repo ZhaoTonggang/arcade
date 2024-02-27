@@ -50,6 +50,7 @@ if (window.top != window) {
 		window.gameUrl = romUrl;
 		// 地区
 		const dipswitch = 'fbneo-dipswitch-' + gameInfo.i + '-Region_(Fake)';
+		const Territory = 'fbneo-dipswitch-' + gameInfo.i + '-Territory';
 		// 初始化
 		window.EJS_player = "#show_box";
 		window.dataPath = "https://other.heheda.top/gamelib/";
@@ -67,7 +68,8 @@ if (window.top != window) {
 		window.defaultOptions = {
 			'shader': 'crt-easymode.glslp',
 			'save-state-location': 'browser',
-			[dipswitch]: 'China'
+			[dipswitch]: 'China',
+			[Territory]: 'Hong Kong'
 		}
 		// 背景模糊
 		window.backgroundBlur = true;
