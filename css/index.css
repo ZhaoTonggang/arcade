@@ -145,7 +145,7 @@ body {
 
 .img_box {
 	display: block;
-	height: 160px;
+	height: 180px;
 	width: 100%;
 	overflow: hidden;
 	position: relative;
@@ -242,6 +242,12 @@ body {
 	top: 85%;
 }
 
+@media (max-width:1400px) {
+	.item .img_box {
+		height: 150px;
+	}
+}
+
 @media (max-width: 1250px) {
 	.item .img_box {
 		height: 140px;
@@ -306,7 +312,7 @@ body {
 
 @media (max-width: 600px) {
 	.img_box {
-		height: 120px;
+		height: 80px;
 	}
 
 	#app {
@@ -316,7 +322,7 @@ body {
 
 @media (max-width:370px) {
 	.img_box {
-		height: 100px;
+		height: 60px;
 	}
 }
 
