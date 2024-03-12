@@ -145,8 +145,7 @@ body {
 
 .img_box {
 	display: block;
-	height: 180px;
-	width: 100%;
+	height: 170px;
 	overflow: hidden;
 	position: relative;
 	border-radius: 10px;
@@ -244,13 +243,13 @@ body {
 
 @media (max-width:1400px) {
 	.item .img_box {
-		height: 150px;
+		height: 140px;
 	}
 }
 
 @media (max-width: 1250px) {
 	.item .img_box {
-		height: 140px;
+		height: 130px;
 	}
 }
 
@@ -260,7 +259,7 @@ body {
 	}
 
 	.item .img_box {
-		height: 130px;
+		height: 120px;
 	}
 
 	.lad {
@@ -311,8 +310,8 @@ body {
 }
 
 @media (max-width: 600px) {
-	.img_box {
-		height: 80px;
+	.item .img_box {
+		height: 140px;
 	}
 
 	#app {
@@ -320,9 +319,10 @@ body {
 	}
 }
 
-@media (max-width:370px) {
-	.img_box {
-		height: 60px;
+@media (max-width:300px) {
+	.item .img_box {
+		height: auto;
+		width: 200px;
 	}
 }
 
