@@ -247,9 +247,8 @@ ins.ads1,
 ins.gogad {
 	padding-top: 60px !important;
 }
-
-ins.ads1,
-ins.ads2 {
+/* 关闭空广告 */
+ins.ads1 {
 	margin-bottom: -50px !important;
 }
 
