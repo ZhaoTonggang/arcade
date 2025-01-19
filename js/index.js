@@ -44,8 +44,8 @@ const intdata = () => {
 				let opgamev = data[j].v ? '(' + data[j].v + ')' : '';
 				let gbios = data[j].b ? '&b=' + data[j].b : '';
 				let grom = data[j].s ? '&s=' + data[j].s : '';
-				let purl = './play/?' + btoa(encodeURIComponent('n=' + data[j].n + opgamev + gbios + '&i=' +
-					data[j].i + grom)) + '.html';
+				let purl = './play/?' + btoa(encodeURI('n=' + data[j].n + opgamev + gbios + '&i=' + data[j].i +
+					grom)) + '.html';
 				item += '<a href="' + purl + '" title="' + data[j].n + '" target="_self"><div class="item">' +
 					'<div class="img_box"><img src="./imgs/' + data[j].i + '.png" alt="' + data[j].n + '">' +
 					span1 + span2 + '</div><p class="item_p1">' + data[j].n + '</p></div></a>';
